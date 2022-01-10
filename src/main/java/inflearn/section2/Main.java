@@ -4,16 +4,12 @@ import java.util.Scanner;
 
 public class Main {
 
-    // 문장속 단어
+    // 대소문자 변환
     public String solution(String str) {
         String answer = "";
-        String[] s = str.split(" ");
-        int max = Integer.MIN_VALUE;
-        for (String c : s) {
-            if (c.length() > max) {
-                max = c.length();
-                answer = c;
-            }
+        for (char x : str.toCharArray()) {
+            if (Character.isLowerCase(x)) answer += Character.toUpperCase(x);
+            else answer += Character.toLowerCase(x);
         }
         return answer;
     }
@@ -23,7 +19,6 @@ public class Main {
         Scanner kb = new Scanner(System.in);
 
         String str = kb.nextLine();
-//        char c = kb.next().charAt(0);
 
         System.out.println(T.solution(str));
     }
