@@ -1,5 +1,7 @@
 package inflearn.section3;
 
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
@@ -22,9 +24,8 @@ public class Main {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
 
-        String str = kb.nextLine();
-//        char c = kb.next().charAt(0);
-
+//        String str = kb.nextLine();
+        String str = "it is time to study";
         System.out.println(T.solution(str));
     }
 }

@@ -1,31 +1,28 @@
 package inflearn.section1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
-    // 문장속 단어
-    public String solution(String str) {
-        String answer = "";
-        String[] s = str.split(" ");
-        int max = Integer.MIN_VALUE;
-        for (String c : s) {
-            if (c.length() > max) {
-                max = c.length();
-                answer = c;
-            }
-        }
-        return answer;
+    public int solution(String str, char t) {
+        str = str.toUpperCase();
+        t = Character.toUpperCase(t);
+        char finalT = t;
+
+        return (int) str.chars().filter(i -> i == finalT).count();
     }
 
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
 
-        String str = kb.nextLine();
-//        char c = kb.next().charAt(0);
+        // sample
+//        String str = "Computercooler";
+//        char c = 'c';
 
-        System.out.println(T.solution(str));
+        String str = kb.next();
+        char c = kb.next().charAt(0);
+
+        System.out.println(T.solution(str, c));
     }
 }
