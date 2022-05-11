@@ -13,10 +13,12 @@ public class JpaMain {
 
         tx.begin();
         try {
+            Member member = new Member();
+            member.setId(2L);
+            member.setUsername("B");
+            member.setRoleType(RoleType.ADMIN);
 
-            Member findMember = em.find(Member.class, 150L);
-            findMember.setName("a");
-
+            em.persist(member);
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
