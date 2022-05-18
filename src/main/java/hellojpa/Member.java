@@ -1,20 +1,21 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@SequenceGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
-        initialValue = 1, allocationSize = 50) // allocationSize default는 50
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "MEMBER_SEQ_GENERATOR")
+    @GeneratedValue
     private Long id;
 
-    private String userName;
+    @Column(name = "USERNAME")
+    private String username;
+
+    private Integer age;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -24,11 +25,27 @@ public class Member {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String name) {
+        this.username = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
