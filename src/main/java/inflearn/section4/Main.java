@@ -17,6 +17,17 @@ import java.util.Scanner;
  * <p>
  * 출력
  * N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
+ *
+ * input :
+ * 3
+ * good
+ * Time
+ * Big
+ *
+ * output :
+ * doog
+ * emiT
+ * giB
  */
 public class Main {
 

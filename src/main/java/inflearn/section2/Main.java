@@ -14,6 +14,9 @@ import java.util.Scanner;
  * <p>
  * 출력
  * 첫 줄에 대문자는 소문자로, 소문자는 대문자로 변환된 문자열을 출력합니다
+ *
+ * input : StuDY
+ * output : sTUdy
  */
 public class Main {
 

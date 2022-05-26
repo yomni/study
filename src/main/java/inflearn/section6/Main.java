@@ -14,6 +14,8 @@ import java.util.Scanner;
  * <p>
  * 출력
  * 첫 줄에 중복문자가 제거된 문자열을 출력합니다.
+ * <p>
+ * input : ksekkset ||| output : kset
  */
 public class Main {
 

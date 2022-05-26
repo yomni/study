@@ -15,6 +15,12 @@ import java.util.Scanner;
  * <p>
  * 출력
  * 첫 줄에 해당 문자의 개수를 출력한다.
+ * <p>
+ * input :
+ * Computercooler
+ * c
+ * output :
+ * 2
  */
 public class Main {
 

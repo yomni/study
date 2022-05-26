@@ -14,6 +14,8 @@ import java.util.Scanner;
  * <p>
  * 출력
  * 첫 줄에 알파벳만 뒤집힌 문자열을 출력합니다.
+ * <p>
+ * input : a#b!GE*T@S ||| output : S#T!EG*b@a
  */
 public class Main {
 
