@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public abstract class BaseEntity {
     private String createdBy;
-    private LocalDateTime createdDateTime;
+    private LocalDateTime createdDate;
     private String lastModifiedBy;
-    private LocalDateTime lastModifiedDateTime;
+    private LocalDateTime lastModifiedDate;
 
     public String getCreatedBy() {
         return createdBy;
@@ -18,12 +18,12 @@ public abstract class BaseEntity {
         this.createdBy = createdBy;
     }
 
-    public LocalDateTime getCreatedDateTime() {
-        return createdDateTime;
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreatedDateTime(LocalDateTime createdDateTime) {
-        this.createdDateTime = createdDateTime;
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
     public String getLastModifiedBy() {
@@ -34,11 +34,11 @@ public abstract class BaseEntity {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public LocalDateTime getLastModifiedDateTime() {
-        return lastModifiedDateTime;
+    public LocalDateTime getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setLastModifiedDateTime(LocalDateTime lastModifiedDateTime) {
-        this.lastModifiedDateTime = lastModifiedDateTime;
+    public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 }

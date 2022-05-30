@@ -1,11 +1,10 @@
 package jpabook.domain;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorColumn
 public class Movie extends Item {
+
     private String director;
     private String actor;
 

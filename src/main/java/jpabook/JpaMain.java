@@ -1,6 +1,6 @@
 package jpabook;
 
-import jpabook.domain.Member;
+import jpabook.domain.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,12 +16,11 @@ public class JpaMain {
 
         tx.begin();
         try {
-            Member member = new Member();
-            member.setName("Kim");
-            member.setCreatedBy("user1");
-            member.setCreatedDateTime(LocalDateTime.now());
-            em.persist(member);
 
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("전용민");
+            em.persist(book);
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
