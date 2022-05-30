@@ -1,13 +1,13 @@
 package jpabook.domain;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order {
+public class Order extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID", nullable = false)
@@ -21,17 +21,9 @@ public class Order {
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
     @Column(name = "ORDER_DATE")
-    private LocalDate orderDate;
+    private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
-    }
 
     public Long getId() {
         return id;
@@ -39,6 +31,14 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
     }
 
     public List<OrderItem> getOrderItems() {
@@ -57,11 +57,11 @@ public class Order {
         this.delivery = delivery;
     }
 
-    public LocalDate getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 

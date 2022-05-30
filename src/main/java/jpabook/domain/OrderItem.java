@@ -4,13 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ORDER_ITEM")
-public class OrderItem {
+public class OrderItem extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ITEM_ID", nullable = false)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "item_id")
     private Item item;
     @ManyToOne
     @JoinColumn(name = "ORDER_ID")

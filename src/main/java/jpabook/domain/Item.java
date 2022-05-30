@@ -7,15 +7,16 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn
-public class Item {
+public abstract class Item extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ITEM_ID", nullable = false)
     private Long id;
+
     private String name;
     private Integer price;
-    @Column(name = "STOCK_QUANTITY")
     private Integer stockQuantity;
+
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 

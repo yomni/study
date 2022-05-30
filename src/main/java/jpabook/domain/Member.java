@@ -1,17 +1,16 @@
 package jpabook.domain;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MEMBER_ID", nullable = false)
     private Long id;
-    private String name;
+    private String userName;
     private String city;
     private String street;
     private String zipcode;
@@ -26,12 +25,12 @@ public class Member extends BaseEntity{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getCity() {
