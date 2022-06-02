@@ -1,4 +1,4 @@
-package inflearn.section4;
+package inflearn.string.section4;
 
 import java.util.ArrayList;
 import java.util.Arrays;

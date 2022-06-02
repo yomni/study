@@ -1,4 +1,4 @@
-package inflearn.section11;
+package inflearn.string.section11;
 
 import java.util.Scanner;
 
