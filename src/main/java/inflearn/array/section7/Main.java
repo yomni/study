@@ -25,6 +25,12 @@ import java.util.Scanner;
  *
  * 출력
  * 첫째 줄에 입력에서 주어진 채점 결과에 대하여 가산점을 고려한 총 점수를 출력한다.
+ *
+ * input :
+ * 10
+ * 1 0 1 1 1 0 0 1 1 0
+ *
+ * output : 10
  */
 public class Main {
     private int solution(int n, int[] a) {
