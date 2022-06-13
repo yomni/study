@@ -32,7 +32,6 @@ import java.util.Scanner;
  * (3, 1), (3, 2), (4, 2)와 같이 3가지 경우의 (멘토, 멘티) 짝을 만들 수 있다.
  */
 public class Main {
-    // 12. 멘토링
     public int solution(int n, int m, int[][] a) {
         int answer = 0;
         int[][] b = new int[n][n]; // 멘티 - 멘토 그래프
