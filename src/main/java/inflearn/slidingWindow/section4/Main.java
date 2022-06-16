@@ -32,16 +32,10 @@ public class Main {
         int p = 0;
         for (int i = 0; i < n; i++) {
             sum += arr[i];
-            if (sum > targetNum) {
-                // sum이 targetNum 보다 작거나 같아질때 까지 줄여야한다.
-                while (sum > targetNum) {
-                    sum -= arr[p++];
-                    if (sum == targetNum) answer++;
-                    else if(sum < targetNum) break;
-                }
-            } else if (sum == targetNum) {
-                answer++;
+            if (sum == targetNum) answer++;
+            while (sum > targetNum) {
                 sum -= arr[p++];
+                if (sum == targetNum) answer++;
             }
         }
         return answer;
