@@ -23,6 +23,11 @@ import java.util.Scanner;
  * output : 3
  */
 public class Main {
+    /**
+     * sliding window 로 해결
+     * @param targetNum
+     * @return
+     */
     public int solution(int targetNum) {
         int answer = 0;
         int sum = 0;
@@ -41,11 +46,30 @@ public class Main {
         return answer;
     }
 
+    /**
+     * 수학적 방법으로 해결
+     * @param targetNum
+     * @return
+     */
+    public int solunion2(int targetNum) {
+        int answer = 0;
+        int cnt = 1;
+        targetNum--;
+
+        while (targetNum > 0) {
+            cnt++;
+            targetNum -= cnt;
+            if(targetNum % cnt == 0) answer++;
+        }
+
+        return answer;
+    }
+
     public static void main(String[] args) {
         Main main = new Main();
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        System.out.println(main.solution(n));
+        System.out.println(main.solunion2(n));
     }
 }
