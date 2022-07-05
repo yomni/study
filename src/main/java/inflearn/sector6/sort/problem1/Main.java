@@ -1,4 +1,4 @@
-package inflearn.sector6.sort;
+package inflearn.sector6.sort.problem1;
 
 import java.util.Scanner;
 
