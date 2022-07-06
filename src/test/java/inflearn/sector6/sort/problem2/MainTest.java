@@ -1,6 +1,5 @@
 package inflearn.sector6.sort.problem2;
 
-import inflearn.sector6.sort.problem2.Main;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
