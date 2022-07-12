@@ -80,19 +80,8 @@ public class Main {
 
         @Override
         public int compareTo(Point o) {
-            if (this.getX() > o.getX()) {
-                return 1;
-            } else if (this.getX() < o.getX()) {
-                return -1;
-            } else if (this.getX() == o.getX()) {
-                if (this.getY() >= o.getY()) {
-                    return 1;
-                } else {
-                    return -1;
-                }
-            } else {
-                return 0;
-            }
+            if(this.x == o.x) return this.y - o.y;
+            else return this.x - o.x;
         }
     }
 }
