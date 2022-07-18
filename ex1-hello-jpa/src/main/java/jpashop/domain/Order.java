@@ -7,38 +7,35 @@ import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order extends BaseEntity {
+public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "ORDER_ID", nullable = false)
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+
     @OneToOne
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
-    @Column(name = "ORDER_DATE")
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
+
     private LocalDateTime orderDate;
+
     @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private OrderStatus orderStatus;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
+    /**
+     * 연관관계 메서드
+     * @param orderItem
+     */
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
     }
 
     public List<OrderItem> getOrderItems() {
@@ -57,19 +54,12 @@ public class Order extends BaseEntity {
         this.delivery = delivery;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public Member getMember() {
+        return member;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setMember(Member member) {
+        this.member = member;
     }
 
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
 }

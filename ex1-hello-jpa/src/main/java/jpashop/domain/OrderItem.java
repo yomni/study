@@ -4,28 +4,20 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ORDER_ITEM")
-public class OrderItem extends BaseEntity {
+public class OrderItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ORDER_ITEM_ID", nullable = false)
+    @GeneratedValue
+    @Column(name = "id", nullable = false)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "item_id")
+    @JoinColumn(name = "ITEM_ID")
     private Item item;
     @ManyToOne
     @JoinColumn(name = "ORDER_ID")
     private Order order;
-    @Column(name = "ORDER_PRICE")
-    private Integer orderPrice;
-    private Integer count;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private int orderPrice;
+    private int count;
 
     public Item getItem() {
         return item;
@@ -43,19 +35,12 @@ public class OrderItem extends BaseEntity {
         this.order = order;
     }
 
-    public Integer getOrderPrice() {
-        return orderPrice;
+    public Long getId() {
+        return id;
     }
 
-    public void setOrderPrice(Integer orderPrice) {
-        this.orderPrice = orderPrice;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
 }
