@@ -5,27 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn
-public abstract class Item extends BaseEntity{
+public class Item extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ITEM_ID", nullable = false)
+    @GeneratedValue
+    @Column(name = "id", nullable = false)
     private Long id;
-
     private String name;
-    private Integer price;
-    private Integer stockQuantity;
-
+    private int price;
+    private int stockQuantity;
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
-    public Long getId() {
-        return id;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public String getName() {
@@ -36,27 +34,28 @@ public abstract class Item extends BaseEntity{
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Integer getStockQuantity() {
+    public int getStockQuantity() {
         return stockQuantity;
     }
 
-    public void setStockQuantity(Integer stockQuantity) {
+    public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public Long getId() {
+        return id;
     }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setId(Long id) {
+        this.id = id;
     }
+
 }

@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "TEAM_ID", nullable = false)
     private Long id;
     @OneToMany(mappedBy = "team")

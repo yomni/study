@@ -3,11 +3,12 @@ package jpahello.domain;
 import javax.persistence.*;
 
 @Entity
-public class Member {
+public class Member extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MEMBER_ID", nullable = false)
     private Long id;
+//    @ManyToOne(fetch = FetchType.LAZY) //************
     @ManyToOne(fetch = FetchType.LAZY) //************
     @JoinColumn(name = "TEAM_ID")
     private Team team;

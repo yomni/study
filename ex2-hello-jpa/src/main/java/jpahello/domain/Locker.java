@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Locker {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "LOCKER_ID", nullable = false)
     private Long id;
     private String name;

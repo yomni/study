@@ -20,26 +20,19 @@ public class JpaMain {
             /**
              * Member를 조회할 때 Team도 조회해야할까?
              */
+            Member member = new Member();
+            member.setUserName("욤니");
             Team team = new Team();
-            team.setName("draem team");
+            team.setName("드림팀");
+            member.setTeam(team);
+            em.persist(member);
             em.persist(team);
-
-            Member member1 = new Member();
-            member1.setUserName("member1");
-            member1.setTeam(team);
-            em.persist(member1);
-
-            Member member2 = new Member();
-            member2.setUserName("member1");
-            member1.setTeam(team);
-            em.persist(member2);
-
             em.flush();
             em.clear();
 
-            Member member = em.find(Member.class, member1.getId());
-            System.out.println("member = " + member.getUserName());
-            System.out.println("member = " + member.getTeam());
+            member = em.find(Member.class, 1l);
+
+            printMemberAndTeam(member);
 
             tx.commit();
         } catch (Exception e) {
@@ -50,6 +43,15 @@ public class JpaMain {
         }
 
         emf.close();
+    }
+
+    private static void printMemberAndTeam(Member member) {
+        String userName = member.getUserName();
+        System.out.println("userName = " + userName);
+
+        Team team = member.getTeam();
+        System.out.println("team = " + team.getName());
+
     }
 
 }
