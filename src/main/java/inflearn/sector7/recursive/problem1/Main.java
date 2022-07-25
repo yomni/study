@@ -1,5 +1,8 @@
-package inflearn.section7.recursive;
+package inflearn.sector7.recursive.problem1;
 
+/**
+ * 스택 프레임(재귀함수) - 피보나치
+ */
 public class Main {
 
     public static void main(String[] args) {
