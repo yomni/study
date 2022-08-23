@@ -1,12 +1,10 @@
 package inflearn.sector7.recursive.problem4;
 
-import java.sql.SQLOutput;
-
-/**
+/*
  * 피보나치 수열
  * 앞의 2개의 수를 합하여 다음 숫자가 되는 수열
  * 입력은 피보나치 수열의 총 항의 수이다.
- * <p>
+ *
  * input : 10
  * output : 1 1 2 3 5 8 13 21 34 55
  */
