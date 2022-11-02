@@ -62,4 +62,50 @@ System.out.println(notPureFunction.doIt(1));
 > ### 생각해보자  
 > 수학에서의 함수의 정의는 `정의역의 모든 값에 대해 공역이 유일하게 결정될 때` 이것을 함수라고 정의한다  
 > 순수 함수란 수학에서의 함수의 정의와 일맥상통한다. 즉, `모든 입력값에 대해 동일한 결과값을 보장`해야만  
-> 함수형 프로그래밍이라 할 수 있다.
+> 함수형 프로그래밍이라 할 수 있다.  
+
+### 자바에서 제공하는 함수형 인터페이스
+- java.lang.function 패키지
+
+#### Function<T, R>
+- T 타입을 받아서 R 타입을 리턴하는 함수 인터페이스
+  - R apply(T t)
+- 함수 조합용 메소드
+  - andThen()
+    - Function 함수A.andThen(함수B) : 함수A의 결과를 함수B의 입력으로 받는 함수형 인터페이스 반환
+  - compose()
+    - Function 함수A.compose(함수B) : 함수B의 결과를 함수A의 입력으로 받는 함수형 인터페이스 반환
+
+#### BiFunction<T, U, R>
+- 두 개의 값(T, U)를 받아 R타입을 리턴하는 함수 인터페이스
+  - R apply(T t, U u)
+- 함수 조합용 메소드
+  - andThen()
+
+#### Consumer<T>
+- T 타입을 받아서 아무값도 리턴하지 않는 함수 인터페이스
+  - void accept(T t)
+- 함수 조합용 메소드
+  - andThen()
+
+#### Supplier<T>
+- T 타입의 값을 제공하는 함수 인터페이스
+  - T get()
+
+#### Predicate<T>
+- T 타입을 받아서 boolean을 리턴하는 함수 인터페이스
+  - boolean test(T t)
+- 함수 조합용 메소드
+  - and()
+  - or()
+  - negate()
+
+#### UnaryOperator<T>
+- Function<T, R>의 특수한 형태로, 입력값 하나를 받아서 동일한 타입을 리턴하는 함수 인터페이스
+```java
+UnaryOperator<Integer> plus10 = i -> i + 10;
+System.out.println(plus10.apply(1));
+```
+
+#### BinaryOperator<T>
+- BiFunction<T, U, R>의 특수한 형태로, 동일한 타입의 입력값 두개를 받아 리턴하는 함수 인터페이스
