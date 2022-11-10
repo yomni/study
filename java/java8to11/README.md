@@ -225,3 +225,32 @@ private void run() {
 ## Stream
 
 ### Stream 이란
+- Sequence of elements supporting sequential and parallel aggregate operations
+- 스트림은 **_데이터 혹은 저장소(Collection)가 아니라 데이터 처리를 하기 위한 도구_**
+- Functional in nature, **_스트림이 처리하는 데이터 소스를 변경하지 않는다._**  
+- ***스트림으로 처리하는 데이터는 오직 한번만 처리***한다.
+- 처리하는 데이터의 사이즈가 무제한일 수 있다.(Short Circuit 메소드를 사용해서 제한할 수 있다)
+- **_중개 오퍼레이션은 근본적으로 lazy_** 하다
+- 손쉽게 병렬처리할 수 있다
+
+#### 스트림 파이프라인
+#### 중개 오퍼레이션
+- **Stream을 리턴한다(lazy 하다)**
+```java
+names.stream()
+    .map((name) -> {
+        System.out.println(name); // 중개오퍼레이션만 있으므로 실행되지 않는다. --> Lazy 하다의 의미
+        return name.toUpperCase();
+    });
+```
+- Stateless / Stateful 오퍼레이션으로 더 상세하게 구분할 수도 있다.
+  - Stateless : 대부분의 중개 오퍼레이션(전 후 단계의 스트림을 참조하지 않는다)
+  - Stateful : distinct나 sorted 처럼 이전 소스 데이터를 참조하는 경우
+- 중개 오퍼레이션 예시
+  - filter
+  - map
+  - limit
+  - skip
+  - sorted
+
+#### 종료 오퍼레이션
