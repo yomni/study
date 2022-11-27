@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -18,22 +16,31 @@ public class JpaMain {
 
         tx.begin();
         try {
-            Member member1 = new Member(null, "전용민1");
-            Member member2 = new Member(null, "전용민2");
-            Member member3 = new Member(null, "전용민3");
+            Member member1 = new Member("yomni");
+            Member member2 = new Member("tess");
+            Member member3 = new Member("platon");
 
             em.persist(member1);
             em.persist(member2);
             em.persist(member3);
 
-            List<Member> list = new ArrayList<>();
-            Team team = new Team(null, "이기는팀내팀", list);
+            Team team = new Team("이기는팀내팀");
             em.persist(team);
-            team.add(member1);
-            team.add(member2);
-            team.add(member3);
+            // 실수 첫번째 : 연관관계 주인이 아닌 녀석이 관리함
+//            team.add(member1);
+//            team.add(member2);
+//            team.add(member3);
 
+            // 첫번째 실수 해결
+            member1.setTeam(team);
+            member2.setTeam(team);
+            member3.setTeam(team);
             tx.commit();
+
+            // 실수 두번째 : 객체 탐색을 자유롭게 하지 못하고 있음
+            for (Member member : team.getMembers()) {
+                System.out.println("member.getUserName() = " + member.getUserName());
+            }
         } catch (Exception e) {
             tx.rollback();
         } finally {

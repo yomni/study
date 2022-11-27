@@ -1,9 +1,6 @@
 package jpashop.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Member {
@@ -14,7 +11,15 @@ public class Member {
 
     private String userName;
 
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
+
     public Member() {
+    }
+
+    public Member(String userName) {
+        this.userName = userName;
     }
 
     public Member(Long id, String userName) {
@@ -26,7 +31,29 @@ public class Member {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getUserName() {
         return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * 일종의 연관관계 편의 메서드
+     * @param team
+     */
+    public void setTeam(Team team) {
+        this.team = team;
+        // 두번째 실수 해결
+        team.add(this);
     }
 }

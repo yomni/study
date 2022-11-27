@@ -1,9 +1,6 @@
 package jpashop.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +11,13 @@ public class Team {
     private Long id;
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
 
     public Team() {
     }
 
-    public Team(Long id, String name, List<Member> members) {
-        this.id = id;
+    public Team(String name) {
         this.name = name;
     }
 
@@ -31,6 +27,10 @@ public class Team {
 
     public String getName() {
         return name;
+    }
+
+    public List<Member> getMembers() {
+        return members;
     }
 
     public void add(Member member) {
