@@ -20,8 +20,8 @@ public abstract class Item {
     @Column(name = "item_id")
     private Long id;
     private String name;
-    private int price;
-    private int stockQuantity;
+    private int price; // 가격
+    private int stockQuantity; // 재고 수량
     @ManyToMany
     @JoinTable(name = "category_item",
             joinColumns = @JoinColumn(name = "category_id"),
