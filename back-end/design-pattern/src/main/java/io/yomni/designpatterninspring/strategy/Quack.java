@@ -1,4 +1,4 @@
-package io.yomni.strategy;
+package io.yomni.designpatterninspring.strategy;
 
 public class Quack implements QuackBehavior{
     @Override
