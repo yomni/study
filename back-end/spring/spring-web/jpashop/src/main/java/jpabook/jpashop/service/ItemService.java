@@ -19,6 +19,15 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    @Transactional
+    public void updateItem(Long itemId, UpdateItemDto itemDto) {
+        Item findItem = itemRepository.findOne(itemId);
+//        findItem.change(itemDto); // setter를 없애고 이렇게 풀어내는게 훨~~~~씬 나음
+        findItem.setPrice(itemDto.getPrice());
+        findItem.setName(itemDto.getName());
+        findItem.setStockQuantity(itemDto.getStockQuantity());
+    }
+
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
