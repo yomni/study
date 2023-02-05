@@ -200,3 +200,5 @@ gradle-app.setting
 .classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,gradle,macos,windows
+/src/main/java/noncommit/
+/src/test/java/noncommit/
