@@ -8,10 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Getter
@@ -28,7 +27,7 @@ public class Order {
     private Member member;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
-    @OneToOne(fetch = LAZY)
+    @OneToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
     private LocalDateTime orderDate; // 주문시간
@@ -83,14 +82,12 @@ public class Order {
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
         order.member = member;
-        order.delivery = delivery;
-        fillOrderItems(order.orderItems, orderItems);
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
         order.status = OrderStatus.ORDER;
         order.orderDate = LocalDateTime.now();
         return order;
-    }
-
-    private static void fillOrderItems(List<OrderItem> orderItemsDest, OrderItem[] orderItemsSource) {
-        Collections.addAll(orderItemsDest, orderItemsSource);
     }
 }
