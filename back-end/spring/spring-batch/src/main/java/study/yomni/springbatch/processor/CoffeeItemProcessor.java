@@ -6,17 +6,19 @@ import org.springframework.batch.item.ItemProcessor;
 import study.yomni.springbatch.domain.Coffee;
 
 public class CoffeeItemProcessor implements ItemProcessor<Coffee, Coffee> {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(CoffeeItemProcessor.class);
 
     @Override
-    public Coffee process(Coffee coffee) throws Exception {
+    public Coffee process(final Coffee coffee) {
         String brand = coffee.getBrand().toUpperCase();
         String origin = coffee.getOrigin().toUpperCase();
-        String characteristics = coffee.getCharacteristics().toUpperCase();
+        String chracteristics = coffee.getCharacteristics().toUpperCase();
 
-        Coffee transformedCoffee = new Coffee(brand, origin, characteristics);
+        Coffee transformedCoffee = new Coffee(brand, origin, chracteristics);
         LOGGER.info("Converting ( {} ) into ( {} )", coffee, transformedCoffee);
 
         return transformedCoffee;
     }
+
 }
