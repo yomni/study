@@ -12,6 +12,6 @@ class MainTest {
 
         assertEquals("YES", main.solution("CBA", "CBDAGE"));
         assertEquals("NO", main.solution("QWERTY", "AYKGDHEJF"));
-        assertEquals("NO", main.solution("AKSDE" ,"KSDEYBCEGS"));
+        assertEquals("NO", main.solution("AKSDE", "KSDEYBCEGS"));
     }
 }
