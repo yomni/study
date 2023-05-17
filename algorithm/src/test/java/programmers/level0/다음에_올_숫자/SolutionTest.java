@@ -41,4 +41,4 @@ class SolutionTest {
         // then
         assertThat(answer).isEqualTo(0);
     }
-}
+} 
