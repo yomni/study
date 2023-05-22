@@ -19,6 +19,10 @@ public class Money {
         return new Money(this.amount.add(amount.amount));
     }
 
+    public Money plus(long amount) {
+        return new Money(this.amount.add(BigDecimal.valueOf(amount)));
+    }
+
     public Money minus(Money amount) {
         return new Money(this.amount.subtract(amount.amount));
     }
