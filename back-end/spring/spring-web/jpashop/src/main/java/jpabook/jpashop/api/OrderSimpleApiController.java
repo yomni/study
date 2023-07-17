@@ -40,11 +40,25 @@ public class OrderSimpleApiController {
     public List<SimpleOrderDto> ordersV2() {
         List<Order> orders = orderRepository.findAllByCriteria(new OrderSearch());
 
-        // N + 1 문제 발생 --> order : Member : Delivery = 1 : 2 : 2
+        // N + 1 문제 발생 --> Order : Member : Delivery = 1 : 2 : 2
         List<SimpleOrderDto> result = orders.stream()
                 .map(SimpleOrderDto::new)
                 .collect(toList());
 
+        return result;
+    }
+
+    /**
+     * fetch join 을 활용한 n+1 문제 해결
+     * @return
+     */
+    @GetMapping("/api/v3/simple-orders")
+    public List<SimpleOrderDto> ordersV3() {
+        List<Order> orders = orderRepository.findAllWithMemberDelivery();
+
+        List<SimpleOrderDto> result = orders.stream()
+                .map(SimpleOrderDto::new)
+                .collect(toList());
         return result;
     }
 
