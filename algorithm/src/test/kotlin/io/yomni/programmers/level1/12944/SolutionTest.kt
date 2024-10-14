@@ -21,6 +21,6 @@ class SolutionTest {
     @MethodSource("argumentsProvider")
     fun solution(input: IntArray, expected: Double) {
         val solution = Solution()
-        assertThat(solution.solution(input)).isEqualTo(expected)
+        assertThat(solution.solution_speed(input)).isEqualTo(expected)
     }
 }
