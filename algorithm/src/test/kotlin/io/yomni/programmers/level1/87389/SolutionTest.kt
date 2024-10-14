@@ -1,6 +1,5 @@
-package programmers.leven1
+package io.yomni.programmers.level1.`87389`
 
-import io.yomni.programmers.leven1.Solution
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.params.ParameterizedTest
@@ -13,13 +12,9 @@ class SolutionTest {
     companion object {
         @JvmStatic
         fun argumentsProvider() = listOf(
-            Arguments.of(12, 28),
-            Arguments.of(5, 6),
-            Arguments.of(3000, 9360),
-            Arguments.of(28, 56),
-            Arguments.of(100, 217),
-            Arguments.of(1, 1),
-            Arguments.of(36, 91)
+            Arguments.of(10, 3),
+            Arguments.of(12, 11),
+            Arguments.of(3, 2),
         )
     }
 
