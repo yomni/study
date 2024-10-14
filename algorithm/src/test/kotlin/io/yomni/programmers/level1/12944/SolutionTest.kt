@@ -13,7 +13,7 @@ class SolutionTest {
         @JvmStatic
         fun argumentsProvider() = listOf(
             Arguments.of(intArrayOf(1, 2, 3, 4), 2.5),
-            Arguments.of(intArrayOf(5), 5),
+            Arguments.of(intArrayOf(5, 5), 5),
         )
     }
 
