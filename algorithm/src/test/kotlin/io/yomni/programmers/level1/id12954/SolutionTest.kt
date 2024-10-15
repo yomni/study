@@ -1,4 +1,4 @@
-package io.yomni.programmers.level1.`12954`
+package io.yomni.programmers.level1.id12954
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
