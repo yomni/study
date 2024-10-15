@@ -1,4 +1,4 @@
-package io.yomni.programmers.level1.`12944`
+package io.yomni.programmers.level1.id87389
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
@@ -12,15 +12,16 @@ class SolutionTest {
     companion object {
         @JvmStatic
         fun argumentsProvider() = listOf(
-            Arguments.of(intArrayOf(1, 2, 3, 4), 2.5),
-            Arguments.of(intArrayOf(5, 5), 5),
+            Arguments.of(10, 3),
+            Arguments.of(12, 11),
+            Arguments.of(3, 2),
         )
     }
 
     @ParameterizedTest
     @MethodSource("argumentsProvider")
-    fun solution(input: IntArray, expected: Double) {
+    fun solution(input: Int, expected: Int) {
         val solution = Solution()
-        assertThat(solution.solution_speed(input)).isEqualTo(expected)
+        assertThat(solution.solution(input)).isEqualTo(expected)
     }
 }

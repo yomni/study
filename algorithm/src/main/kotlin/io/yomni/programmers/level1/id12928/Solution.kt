@@ -1,4 +1,4 @@
-package io.yomni.programmers.level1.`12928`
+package io.yomni.programmers.level1.id12928
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/12928 - 약수의 합
 class Solution {
