@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:tc:mysql:8://ad_center
+    url: jdbc:tc:mysql:8:///ad_center
     username: wadiz_ad
     password: WADIZ!@#123
   jpa:
