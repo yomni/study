@@ -3,6 +3,8 @@ spring:
     url: jdbc:tc:mysql:8:///ad_center
     username: wadiz_ad
     password: WADIZ!@#123
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
